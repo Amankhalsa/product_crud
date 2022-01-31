@@ -29,8 +29,15 @@ Route::post('store/product',[ProductController::class, 'store_product'])->name('
 // edit product
 Route::get('edit/product/{id}',[ProductController::class, 'edit_product'])->name('edit.product');
 
+// update product 
+Route::post('update/product/{id}',[ProductController::class, 'update_product'])->name('update.product');
 
-// store.product
+Route::get('delete/product/{id}', [ProductController::class,'delete_product'])->name('delete.product');
+//show product 
+Route::get('show/product/{id}', [ProductController::class,'show_product'])->name('show.product');
+
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

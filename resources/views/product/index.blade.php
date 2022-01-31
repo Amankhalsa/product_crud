@@ -16,11 +16,9 @@
 
 </div>
 	@if($message = Session::get('success'))
-<div class="alert alert-success alert-dismissible fade show" role="alert">
+<div class="alert alert-success" >
   <strong>{{$message}}</strong> 
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-  <span aria-hidden="true">&times;</span>
-  </button>
+
 </div>
 	@endif
 
@@ -36,15 +34,22 @@
 <tr>
 <td>{{$value->product_name}} </td> 
 <td>{{$value->product_code}}</td>
-<td>{{$value->details}}</td>
+<td>{{  Str::limit($value->details,40)
+
+	
+}}
+
+
+</td>
 <td><img src="{{$value->logo}}" width="100"></td>
-<td><a href="" class="btn btn-info">Show</a>
+<td><a href="{{route('show.product',$value->id)}}" class="btn btn-info">Show</a>
 	<a href="{{route('edit.product',$value->id)}}" class="btn btn-primary">Edit</a>
-	<a href="" class="btn btn-danger">Delete</a></td>
+	<a href="{{route('delete.product',$value->id)}}" class="btn btn-danger" onclick=" return confirm('Are sure want to delete this ?');">Delete</a></td>
 	</tr>
 	@endforeach
 </table>
 
-
+{{ $product->links()}}
+{{$product->total()}}
 
 @endsection

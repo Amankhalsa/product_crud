@@ -16,7 +16,7 @@
 	</div>
 </div>
 
-<form action="" method="post" enctype="multipart/form-data">
+<form action="{{route('update.product',$editdata->id)}}" method="post" enctype="multipart/form-data">
 	@csrf
 <div class="row">
 	
@@ -45,6 +45,7 @@
 		<div class="form-group">
 
 			<img src="{{asset($editdata->logo)}}" width="100" id="output">
+			<input type="hidden" name="old_image" value="{{$editdata->logo}}">
 		</div>
 	</div>
 				<div class="col-xs-12 col-sm-12 col-md-12">
