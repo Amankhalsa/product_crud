@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/tnkhyple/public_html/img_crud/
+    - /bin/cp * $DEPLOYPATH
